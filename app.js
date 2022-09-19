@@ -4,8 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config(); // Se pone aca si o si, es lo del mail tester
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var cabanasRouter = require('./routes/cabanas');
+var serviciosRouter = require('./routes/servicios');
+var galeriaRouter = require('./routes/galeria');
+var lasChacrasRouter = require('./routes/las-chacras');
+var contactoRouter = require('./routes/contacto');
 
 var app = express();
 
@@ -20,7 +26,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/cabanas', cabanasRouter);
+app.use('/servicios', serviciosRouter);
+app.use('/galeria', galeriaRouter);
+app.use('/las-chacras', lasChacrasRouter);
+app.use('/contacto', contactoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

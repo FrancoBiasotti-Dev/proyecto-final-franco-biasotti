@@ -1,0 +1,123 @@
+/*
+font-family: 'Montserrat', sans-serif;
+font-weight: Light, 300; Regular, 400; Medium, 500;
+
+font-family: 'Open Sans', sans-serif;
+font-weight: Light, 300, Italic; Regular, 400, Italic; Medium, 500;
+
+font-family: 'Raleway', sans-serif;
+font-weight: Light, 300; Medium, 500;
+
+*/
+
+body{
+    background: #e0f1d7;
+}
+
+header{
+    background: hsla(93, 40%, 60%, 1);
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+header div{
+    margin: 0;
+    height: 50px;
+}
+
+header div img{
+    height: 50px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 100% 57%;
+}
+
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+nav ul li{
+    padding: 14px 25px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #1B4852;
+}
+
+nav ul li a:hover, nav ul li a:active{
+    color: #991A08;
+}
+
+/* Aca abajo el main */
+
+main{
+    padding-top: 100px;
+}
+
+h1{
+    margin-bottom: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    color: #FF6600;
+    font-size: 2rem;
+}
+
+main>div{
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main img{
+    height:100%;
+    width: 320px;
+}
+
+main p, main ul{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+/* Aca abajo el footer general */
+
+footer{
+    padding-top: 2px;
+    background: #121212;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: #FFFFFF;
+}
+
+.footer1{
+    padding-left: 1rem;
+}
+
+footer div a{
+    color: #006633;
+    text-decoration: none;
+}
+
+.copyright{
+    font-size: 0.9rem;
+    margin-top: 2px;
+    padding-top: 3px;
+    text-align: center;
+    background: #000000;
+    font-family: initial;
+    font-weight: initial;
+    font-style: initial;
+    color: #FFFFFF;
+}
