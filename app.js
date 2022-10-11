@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require('dotenv').config(); // Se pone aca si o si, es lo del mail tester
+var session = require('express-session');
+
+var pool = require('./models/bd');
 
 var indexRouter = require('./routes/index');
 var cabanasRouter = require('./routes/cabanas');
@@ -12,6 +15,8 @@ var serviciosRouter = require('./routes/servicios');
 var galeriaRouter = require('./routes/galeria');
 var lasChacrasRouter = require('./routes/las-chacras');
 var contactoRouter = require('./routes/contacto');
+var loginRouter = require('./routes/admin/login');
+var adminRouter = require('./routes/admin/novedades');
 
 var app = express();
 
@@ -25,12 +30,35 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'PW2022asdfghjk',
+  resave: false,
+  saveUnitialized: true
+}));
+
+secured = async (req, res, next) => {
+  try {
+    console.log(req.session.id_usuario);
+    if (req.session.id_usuario){  // pide usuario ingresado para ir a siguiente pag
+      next();
+    }
+    else {
+      res.redirect('/admin/login');
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+
 app.use('/', indexRouter);
 app.use('/cabanas', cabanasRouter);
 app.use('/servicios', serviciosRouter);
 app.use('/galeria', galeriaRouter);
 app.use('/las-chacras', lasChacrasRouter);
 app.use('/contacto', contactoRouter);
+app.use('/admin/login', loginRouter);
+app.use('/admin/novedades', secured, adminRouter); // carga primero el middleware de secured
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
