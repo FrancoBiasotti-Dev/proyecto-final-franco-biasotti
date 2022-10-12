@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('logout', function(req, res, next){
+router.get('/logout', function(req, res, next){
     req.session.destroy(); //destruye variables de sesion
     res.render('admin/login', {
         layout: 'admin/layout'

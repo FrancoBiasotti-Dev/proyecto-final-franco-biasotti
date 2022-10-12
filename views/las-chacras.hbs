@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/stylesheets/css/las-chacras.css">
 
-<h1>Descubrí Las Chacras - Novedades</h1>
+<h1>Descubrí Las Chacras | Calificaciones</h1>
 <hr>
 <div class="container">
     <div>
@@ -17,7 +17,7 @@
     </div>
     <div>
         <img src="/images/assets/images/eventos.webp" alt="imagen eventos">
-        <a href="#eventos">Eventos</a>
+        <a href="#calificaciones">Calificaciones</a>
     </div>
 </div>
 <img src="/images/assets/images/las-chacras-2.webp" alt="imagen las chacras">
@@ -93,13 +93,17 @@
 
 <hr class="separador">
 
-<h2 id="eventos">Eventos</h2>
-<div class="evento-1">
+<h2 id="calificaciones">Calificaciones</h2>
+{{#each novedades}}
+<div class="calificacion">
     <div>
-        <img src="/images/assets/images/eventos.webp" alt="evento 1">
+        <h3>Calificacion: {{calificacion}} estrellas</h3>
     </div>
-    <div class="evento1-texto">
-        <h3>Conmemoración del 9 de Julio</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, minus adipisci qui odio officia inventore distinctio dicta doloremque vero itaque ipsum porro, quidem illo nulla ab dolores id voluptate nesciunt!</p>
+    <div>
+        <h3>{{titulo}}</h3>
+        <p>{{comentario}}</p>
     </div>
+    
 </div>
+<hr class="separador-int">
+{{/each}}
