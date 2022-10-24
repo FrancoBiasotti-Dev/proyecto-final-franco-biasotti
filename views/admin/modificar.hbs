@@ -3,15 +3,15 @@
         <div class="col-6 offset-3">
             <h4>Modificar un nuevo comentario</h4>
             <form action="/admin/novedades/modificar" method="post">
-                <input type="hidden" value="{{calificacion.id}}" name="id">
+                <input type="hidden" value="{{novedad.id}}" name="id">
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="usuario" name="calificacion" placeholder="Calificacion" value="{{calificacion.calificacion}}">
+                    <input type="text" class="form-control" id="usuario" name="calificacion" placeholder="Calificacion" value="{{novedad.calificacion}}">
                 </div>
                 <div class="mb-3">
-                    <textarea type="text" class="form-control" name="titulo" placeholder="Titulo">{{calificacion.titulo}}</textarea>
+                    <textarea type="text" class="form-control" name="titulo" placeholder="Titulo">{{novedad.titulo}}</textarea>
                 </div>
                 <div class="mb-3">
-                    <textarea type="text" class="form-control" name="comentario" placeholder="Comentario">{{calificacion.comentario}}</textarea>
+                    <textarea type="text" class="form-control" name="comentario" placeholder="Comentario">{{novedad.comentario}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Modificar</button>
             </form>

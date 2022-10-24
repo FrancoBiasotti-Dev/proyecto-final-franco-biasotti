@@ -54,11 +54,11 @@ router.post('/agregar', async (req, res, next)=>{
 // Listar una sola novedad/comentario por id (para modificar)
 router.get('/modificar/:id', async (req, res, next)=>{
     var id = req.params.id;
-    var comentario = await novedadesModel.getCalificacionById(id);
+    var novedad = await novedadesModel.getCalificacionById(id);
 
     res.render('admin/modificar', {
         layout: 'admin/layout',
-        comentario
+        novedad
     })
 })
 
