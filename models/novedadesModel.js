@@ -44,4 +44,11 @@ async function modificarCalificacionById(obj, id){
     }
 }
 
-module.exports = {getCalificaciones, deleteCalificacionById, insertCalificacion, getCalificacionById, modificarCalificacionById}
+
+async function buscarCalificaciones(busqueda){
+    var query = "select * from calificaciones where calificacion like ? OR titulo like ? OR comentario like ?";
+    var rows = await pool.query(query, ['%' + busqueda + '%', '%' + busqueda + '%', '%' + busqueda + '%']);
+    return rows;
+}
+
+module.exports = {getCalificaciones, deleteCalificacionById, insertCalificacion, getCalificacionById, modificarCalificacionById, buscarCalificaciones}

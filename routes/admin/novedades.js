@@ -5,12 +5,21 @@ var novedadesModel = require('../../models/novedadesModel');
 // para listar las novedades
 router.get('/', async function (req, res, next){
 
-    var novedades = await novedadesModel.getCalificaciones();
+    // var novedades = await novedadesModel.getCalificaciones();
+
+    var novedades
+    if(req.query.q === undefined){
+        novedades = await novedadesModel.getCalificaciones();
+    } else{
+        novedades = await novedadesModel.buscarCalificaciones(req.query.q);
+    }
 
     res.render('admin/novedades', {
         layout: 'admin/layout',
         usuario: req.session.nombre,
-        novedades
+        novedades,
+        is_search: req.query.q !== undefined,
+        q: req.query.q
     });
 }); // cierra inicial
 

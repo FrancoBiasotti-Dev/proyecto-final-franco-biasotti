@@ -3,6 +3,8 @@ var router = express.Router();
 
 var nodemailer = require('nodemailer'); // Necesita de la dependencia nodemailer
 
+var contactoModel = require('../models/contactoModel');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('contacto');
@@ -35,6 +37,8 @@ router.post('/', async (req, res, next) =>{
   // transporter crea el transporte de la info, y en vez de poner los datos dados por mailtrap directo, se los conecta con el archivo .env para mas simplicidad
 
   var info = await transporter.sendMail(obj); // Funcion que manda el mail/mensaje
+
+  var contacto = await contactoModel.insertContacto(req.body); // Se guarda en base de datos
 
   res.render('contacto',{
     message: 'Mensaje enviado correctamente.'

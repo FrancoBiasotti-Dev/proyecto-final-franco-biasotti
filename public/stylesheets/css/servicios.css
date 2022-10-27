@@ -99,6 +99,9 @@ footer{
     font-weight: 300;
     font-style: italic;
     color: #FFFFFF;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer1{
